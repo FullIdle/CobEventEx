@@ -1,0 +1,15 @@
+group = 'org.figsq.bukkitplugin.bukkitplugin'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url = 'https://maven.impactdev.net/repository/development/'
+    }
+}
+
+dependencies {
+    compileOnly rootProject
+    compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
+}

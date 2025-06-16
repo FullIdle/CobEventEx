@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "package": "org.figsq.cobeventex.cobeventex.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "MixinTradeManager",
+    "instruction.MixinBagItemInstruction",
+    "instruction.MixinFaintInstruction",
+    "instruction.MixinFormeChangeInstruction",
+    "instruction.MixinInitializeInstruction",
+    "instruction.MixinMoveInstruction",
+    "instruction.MixinPpUpdateInstruction",
+    "instruction.MixinReplaceInstruction",
+    "instruction.MixinSwapInstruction",
+    "instruction.MixinSwitchInstruction",
+    "instruction.MixinTurnInstruction",
+    "instruction.MixinUpkeepInstruction",
+    "instruction.MixinWinInstruction"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

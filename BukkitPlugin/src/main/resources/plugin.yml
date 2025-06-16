@@ -1,0 +1,4 @@
+name: BukkitPlugin
+version: 1.0-SNAPSHOT
+main: org.figsq.bukkitplugin.bukkitplugin.BukkitPlugin
+api-version: 1.21

@@ -1,0 +1,55 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.0.20'
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+    id 'dev.architectury.loom' version '1.7-SNAPSHOT'
+    id 'java'
+}
+
+group = 'org.figsq.cobeventex.cobeventex'
+version = '1.0-SNAPSHOT'
+
+
+allprojects {
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+    apply plugin: 'java'
+    apply plugin: 'architectury-plugin'
+    apply plugin: 'dev.architectury.loom'
+
+    architectury {
+        minecraft = '1.21.1'
+        platformSetupLoomIde()
+        fabric()
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url = 'https://maven.impactdev.net/repository/development/'
+        }
+    }
+
+    dependencies {
+        //minecraft
+        minecraft "com.mojang:minecraft:1.21.1"
+        mappings loom.officialMojangMappings()
+
+        //fabric
+        modImplementation "net.fabricmc:fabric-loader:0.16.12"
+        modApi "net.fabricmc.fabric-api:fabric-api:0.115.4+1.21.1"
+
+        //mods
+        modCompileOnly("com.cobblemon:mod:1.6.1+1.21.1")
+
+        //kotlin
+        testImplementation 'org.jetbrains.kotlin:kotlin-test'
+        compileOnly 'org.jetbrains.kotlin:kotlin-reflect'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+    kotlin {
+        jvmToolchain(21)
+    }
+}

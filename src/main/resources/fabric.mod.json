@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "cobeventex",
+  "version": "${version}",
+  "name": "CobEventEx",
+  "description": "desc",
+  "authors": [
+    "FI_GSQ",
+    "GSQ_Lin",
+    "FullIdle"
+  ],
+  "contact": {
+    "homepage": "TODO",
+    "sources": "TODO"
+  },
+  "license": "Insert License Here",
+  "icon": "assets/examplemod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.figsq.cobeventex.cobeventex.CobEventEx"
+    ],
+    "client": [
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "cobblemon": "*"
+  },
+  "mixins": [
+    "cobeventex.mixins.json"
+  ]
+}
