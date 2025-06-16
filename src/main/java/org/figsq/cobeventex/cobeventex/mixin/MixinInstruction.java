@@ -1,8 +1,10 @@
 package org.figsq.cobeventex.cobeventex.mixin;
 
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle;
+import com.cobblemon.mod.common.battles.dispatch.InterpreterInstruction;
 import com.cobblemon.mod.common.battles.interpreter.instructions.*;
-import org.figsq.cobeventex.cobeventex.api.bridge.IInstructionBridge;
+import org.figsq.cobeventex.cobeventex.events.BattleInstructionEvent;
+import org.figsq.cobeventex.cobeventex.events.CobExEvents;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -74,13 +76,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
         ZBrokenInstruction.class,
         ZPowerInstruction.class,
 }, remap = false)
-public abstract class MixinInstruction implements IInstructionBridge {
+public abstract class MixinInstruction implements InterpreterInstruction {
     @Inject(
             method = "invoke",
             at = @At("HEAD"),
             cancellable = true
     )
     public void invoke(PokemonBattle battle, CallbackInfo ci) {
-        call(ci, battle);
+        CobExEvents.cancelablePostThen(ci, CobExEvents.BATTLE_INSTRUCTION, new BattleInstructionEvent(battle, this));
     }
 }
