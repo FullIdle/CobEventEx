@@ -4,11 +4,14 @@
 一个对 Cobblemon 模组进行扩展事件的模组
 
 ## 构建
-克隆项目
+### 克隆项目
+
 `git clone https://github.com/FullIdle/CobEventEx.git CobEventEx`
-进入项目目录
+### 进入项目目录
+
 `cd CobEventEx`
-构建模组
+### 构建模组
+
 `./gradlew build`
 
 ## 安装
