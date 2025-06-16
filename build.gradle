@@ -3,6 +3,7 @@ plugins {
     id 'architectury-plugin' version '3.4-SNAPSHOT'
     id 'dev.architectury.loom' version '1.7-SNAPSHOT'
     id 'java'
+    id 'maven-publish'
 }
 
 group = 'org.figsq.cobeventex.cobeventex'
@@ -51,5 +52,23 @@ allprojects {
     }
     kotlin {
         jvmToolchain(21)
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            allowInsecureProtocol = true
+            url = uri(diary_studio_repo)
+            credentials {
+                username = diary_studio_username
+                password = diary_studio_password
+            }
+        }
     }
 }
