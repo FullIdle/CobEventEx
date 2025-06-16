@@ -5,7 +5,8 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven {
-        url = 'https://maven.impactdev.net/repository/development/'
+        allowInsecureProtocol = true
+        url "http://server.pokemtd.top:31647/snapshots"
     }
 }
 
